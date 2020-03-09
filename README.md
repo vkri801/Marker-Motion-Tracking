@@ -12,3 +12,15 @@ w[x y 1]=[X Y Z 1]P
 
 P=[R;T]K                            
 
+The K matrix members give the focal distances, centre, and slew. The pinhole camera model does not account for lens distortion because an ideal pinhole camera does not have a lens. To accurately represent a real camera, the full camera model used by the algorithm included the radial and tangential lens distortion. Radial distortion is the most likely cause for errors in the image space. These then affect the coordinate mapping in camera space. 
+
+
+A chessboard was used for the calibration of both the web camera and KV2 RGB sensors. The pattern found was from known points as specified in the code snippet. After the calibration, a camera matrix of 3x3 elements is extracted. The focal distances and the camera center coordinates were part of this matrix and made up the intrinsic parameters. This is labelled as mtx in the code snippet. The distortion coefficients, ‘dist’, is the vector
+
+
+## Marker Tracking
+The ArUco module that was used was based on the ArUco library which is a popular library for detection of square fiducial markers. A marker was printed using a utility script. Each marker is 30mm in length. 
+
+Sensor fusion derived equations are available in "Results and pics" folder. The use of two sensors was to obtain a more accurate depth reading.
+
+
